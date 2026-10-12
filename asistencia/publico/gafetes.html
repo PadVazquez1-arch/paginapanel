@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gafetes para imprimir</title>
+<link rel="stylesheet" href="/estilo.css">
+<style>
+  .rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .gafete {
+    background: #fff; border: 1.5px solid var(--tinta); border-radius: 4px; overflow: hidden;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .gafete header { background: var(--tinta); color: var(--papel-claro); padding: 7px 10px; }
+  .gafete header .escuela { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; }
+  .gafete .cuerpo { padding: 10px; text-align: center; }
+  .gafete img { width: 100%; max-width: 158px; display: block; margin: 0 auto 8px; }
+  .gafete .nombre { font-weight: 800; text-transform: uppercase; font-size: .82rem; line-height: 1.15; }
+  .gafete .materia { font-size: .68rem; color: var(--tinta-suave); margin-top: 2px; }
+  .gafete footer { border-top: 1.5px dashed var(--raya); padding: 5px 10px; font-family: var(--mono); font-size: .55rem; color: var(--tinta-suave); text-align: center; letter-spacing: .06em; }
+  @media print {
+    .noimprimir { display: none; }
+    body { background: #fff; }
+    .contenido { padding: 0; max-width: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="encabezado noimprimir">
+    <div class="crece"><h1>Gafetes</h1><span class="rotulo">Imprime, recorta y plastifica</span></div>
+    <button onclick="print()">Imprimir</button>
+  </header>
+  <main class="contenido">
+    <p class="aviso noimprimir">Cada código es único y personal. Si se pierde un gafete, da de baja al docente y vuelve a darlo de alta: se genera un código nuevo y el anterior deja de servir.</p>
+    <div class="rejilla" id="rejilla"></div>
+  </main>
+<script>
+(async () => {
+  const cfg = await (await fetch('/api/hoy')).json();
+  const lista = await (await fetch('/api/docentes')).json();
+  document.getElementById('rejilla').innerHTML = lista.filter(d => d.activo).map(d => `
+    <article class="gafete">
+      <header><div class="escuela">${cfg.config.escuela}</div></header>
+      <div class="cuerpo">
+        <img src="/api/qr/${d.id}.png" alt="Código del gafete de ${d.nombre}">
+        <div class="nombre">${d.nombre}</div>
+        <div class="materia">${d.materia || 'Personal docente'}</div>
+      </div>
+      <footer>REGISTRO DE ASISTENCIA · ${d.token.slice(0, 10)}</footer>
+    </article>`).join('');
+})();
+</script>
+</body>
+</html>

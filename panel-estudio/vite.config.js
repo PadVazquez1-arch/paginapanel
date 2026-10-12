@@ -1,0 +1,12 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: true,          // escucha en todas las interfaces, no solo en localhost
+    port: 5173,
+    proxy: { '/api': 'http://localhost:8787' },   // el panel pide /api, el servidor responde
+  },
+  build: { outDir: 'dist' },
+});

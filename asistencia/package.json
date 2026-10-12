@@ -1,0 +1,16 @@
+{
+  "name": "asistencia-docente-qr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Control de asistencia docente por codigo QR con avisos en tiempo real a direccion",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

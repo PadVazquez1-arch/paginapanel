@@ -1,0 +1,6 @@
+tunnel: asistencia
+credentials-file: /home/ror/.cloudflared/e1a9af32-f8e6-4c29-b15a-b8a0d781e534.json
+ingress:
+  - hostname: asistencia.jacquesdelors.online
+    service: http://localhost:3000
+  - service: http_status:404

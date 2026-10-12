@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel de dirección</title>
+<link rel="stylesheet" href="/estilo.css">
+<style>
+  .resumen { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .dato { flex: 1; min-width: 88px; background: #fff; border: 1.5px solid var(--raya); border-radius: 3px; padding: 12px; }
+  .dato .cifra { font-family: var(--mono); font-size: 1.7rem; font-weight: 600; line-height: 1; }
+  .dato.retardos .cifra { color: var(--ambar); }
+  .dato.faltas .cifra { color: var(--sello); }
+  .barra { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; margin-bottom: 14px; }
+  .barra label { margin: 0; }
+  .oculto { display: none; }
+  .par { display: flex; gap: 12px; flex-wrap: wrap; }
+  .par label { flex: 1; min-width: 150px; }
+  .clave-estacion { font-family: var(--mono); font-size: .8rem; word-break: break-all; background: var(--papel); padding: 8px 10px; border-radius: 2px; }
+</style>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="crece">
+      <h1 id="tituloEscuela">Panel de dirección</h1>
+      <span class="rotulo">Asistencia docente</span>
+    </div>
+    <a class="boton boton-claro" style="color:var(--papel-claro);border-color:#3d5680" href="/api/salir">Salir</a>
+  </header>
+
+  <main class="contenido">
+    <nav class="pestanas" role="tablist">
+      <button role="tab" aria-selected="true" data-vista="hoja">Hoja del día</button>
+      <button role="tab" aria-selected="false" data-vista="docentes">Docentes</button>
+      <button role="tab" aria-selected="false" data-vista="punto">Punto QR</button>
+      <button role="tab" aria-selected="false" data-vista="ajustes">Ajustes</button>
+    </nav>
+
+    <!-- HOJA DEL DÍA -->
+    <section id="vista-hoja">
+      <div class="barra">
+        <label><span class="rotulo">Fecha</span><input type="date" id="fecha"></label>
+        <button class="boton-claro" id="btnCsv">Descargar Excel del mes</button>
+      </div>
+      <div class="resumen">
+        <div class="dato"><div class="cifra" id="cPresentes">0</div><span class="rotulo">Presentes</span></div>
+        <div class="dato retardos"><div class="cifra" id="cRetardos">0</div><span class="rotulo">Retardos</span></div>
+        <div class="dato faltas"><div class="cifra" id="cFaltas">0</div><span class="rotulo">Sin registro</span></div>
+      </div>
+      <div class="tarjeta hoja" id="listaHoja"></div>
+    </section>
+
+    <!-- DOCENTES -->
+    <section id="vista-docentes" class="oculto">
+      <div class="tarjeta">
+        <h2 style="margin-bottom:14px">Dar de alta</h2>
+        <div class="par">
+          <label><span class="rotulo">Nombre completo</span><input id="nNombre" placeholder="Ana Sofía García"></label>
+          <label><span class="rotulo">Materia o cargo</span><input id="nMateria" placeholder="Matemáticas"></label>
+        </div>
+        <button id="btnAlta">Agregar y generar gafete</button>
+      </div>
+      <div class="tarjeta">
+        <div class="barra" style="justify-content:space-between">
+          <h2>Plantilla</h2>
+          <a class="boton boton-claro" href="/gafetes" target="_blank">Imprimir gafetes</a>
+        </div>
+        <div id="listaDocentes"></div>
+      </div>
+    </section>
+
+    <!-- PUNTO DE REGISTRO -->
+    <section id="vista-punto" class="oculto">
+      <div class="tarjeta">
+        <h2 style="margin-bottom:10px">El QR de la entrada</h2>
+        <p class="aviso" style="margin-top:0">Un solo cartel para toda la escuela. Cada maestro lo escanea con su
+          propio celular, elige su nombre y pone su PIN. La primera vez nada más.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <a class="boton" href="/cartel" target="_blank">Ver e imprimir el cartel</a>
+          <button class="boton-claro" id="btnRenovar">Generar un código nuevo</button>
+        </div>
+        <p class="clave-estacion" id="ligaPunto" style="margin-top:14px">—</p>
+      </div>
+
+      <div class="tarjeta">
+        <h2 style="margin-bottom:14px">Ubicación de la escuela</h2>
+        <p class="aviso" style="margin-top:0">Sirve para que el registro solo cuente desde el plantel. Abre este panel
+          <b>estando en la escuela</b> y toca el botón: se guardan las coordenadas de donde estás parado.</p>
+        <div class="par" style="margin-top:12px">
+          <label><span class="rotulo">Latitud</span><input id="aLat" placeholder="26.0800"></label>
+          <label><span class="rotulo">Longitud</span><input id="aLng" placeholder="-98.2900"></label>
+          <label><span class="rotulo">Radio permitido (metros)</span><input type="number" id="aRadio" min="30" max="2000"></label>
+        </div>
+        <label>
+          <span class="rotulo">¿Pedir PIN al registrarse?</span>
+          <select id="aPin">
+            <option value="si">Sí, cada quien con su PIN</option>
+            <option value="no">No, solo elige su nombre</option>
+          </select>
+        </label>
+        <label>
+          <span class="rotulo">¿Verificar ubicación?</span>
+          <select id="aExigir">
+            <option value="si">Sí, solo desde la escuela</option>
+            <option value="no">No, desde cualquier lugar</option>
+          </select>
+        </label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button id="btnUbicar" class="boton-claro">Usar mi ubicación actual</button>
+          <button id="btnGuardarPunto">Guardar</button>
+        </div>
+        <p class="aviso" id="msgPunto"></p>
+      </div>
+    </section>
+
+    <!-- AJUSTES -->
+    <section id="vista-ajustes" class="oculto">
+      <div class="tarjeta">
+        <h2 style="margin-bottom:14px">Horario</h2>
+        <label><span class="rotulo">Nombre de la escuela</span><input id="aEscuela"></label>
+        <div class="par">
+          <label><span class="rotulo">Hora de entrada</span><input type="time" id="aEntrada"></label>
+          <label><span class="rotulo">Tolerancia (minutos)</span><input type="number" id="aTolerancia" min="0" max="60"></label>
+          <label><span class="rotulo">Avisar faltas a las</span><input type="time" id="aCorte"></label>
+        </div>
+        <label>
+          <span class="rotulo">¿Registrar también la salida?</span>
+          <select id="aSalida">
+            <option value="no">No, solo la entrada</option>
+            <option value="si">Sí, un segundo escaneo marca salida</option>
+          </select>
+        </label>
+        <p class="aviso">A la hora que pongas arriba, la dirección recibe un aviso por cada docente que no se haya escaneado, más el resumen del día. De lunes a viernes.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h2 style="margin-bottom:14px">Avisos a dirección</h2>
+        <label>
+          <span class="rotulo">¿Por dónde llegan los avisos?</span>
+          <select id="aCanal">
+            <option value="telegram">Telegram</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="ambos">Los dos</option>
+          </select>
+        </label>
+
+        <div id="bloqueTelegram">
+          <label><span class="rotulo">Token del bot de Telegram</span><input id="aToken" placeholder="123456:ABC-DEF..."></label>
+          <label><span class="rotulo">Chat ID de la directora</span><input id="aChat" placeholder="-1001234567890"></label>
+        </div>
+
+        <div id="bloqueWhatsapp">
+          <label><span class="rotulo">Token permanente de Meta</span><input id="aWaToken" placeholder="EAAG..."></label>
+          <div class="par">
+            <label><span class="rotulo">Phone number ID</span><input id="aWaPhone" placeholder="123456789012345"></label>
+            <label><span class="rotulo">Idioma de las plantillas</span><input id="aWaIdioma" placeholder="es_MX"></label>
+          </div>
+          <label>
+            <span class="rotulo">Números que reciben el aviso</span>
+            <input id="aWaDestinos" placeholder="5218991234567, 5218997654321">
+          </label>
+          <p class="aviso" style="margin-top:0">Con lada de país y sin signos: 52 + 1 + los diez dígitos. Sepáralos con comas.</p>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button id="btnGuardar">Guardar ajustes</button>
+          <button class="boton-claro" id="btnProbar">Enviar aviso de prueba</button>
+          <button class="boton-claro" id="btnCorte">Simular el aviso de faltas</button>
+        </div>
+        <p class="aviso" id="msgAjustes"></p>
+      </div>
+
+      <div class="tarjeta">
+        <h2 style="margin-bottom:10px">Estación de entrada</h2>
+        <p class="aviso" style="margin-top:0">Abre esta liga en la tablet o el celular de recepción y escribe la clave. Queda lista para escanear todo el día.</p>
+        <p class="clave-estacion" id="claveEstacion">—</p>
+      </div>
+    </section>
+  </main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let config = {};
+
+/* Pestañas */
+document.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => {
+  document.querySelectorAll('[data-vista]').forEach(o => o.setAttribute('aria-selected', String(o === b)));
+  ['hoja','docentes','punto','ajustes'].forEach(v => $('vista-' + v).classList.toggle('oculto', v !== b.dataset.vista));
+  if (b.dataset.vista === 'docentes') cargarDocentes();
+  if (b.dataset.vista === 'punto') cargarPunto();
+});
+
+const ETIQUETAS = {
+  puntual: ['sello-puntual', 'Puntual'],
+  retardo: ['sello-retardo', 'Retardo'],
+  'sin registro': ['sello-falta', 'Sin registro'],
+};
+
+async function cargarHoja() {
+  const r = await fetch('/api/hoy?fecha=' + $('fecha').value);
+  if (r.status === 401) return location.href = '/entrar';
+  const d = await r.json();
+  config = d.config;
+  $('tituloEscuela').textContent = config.escuela || 'Panel de dirección';
+  $('claveEstacion').textContent = location.origin + '/escaner  ·  clave: ' + config.clave_estacion;
+
+  const presentes = d.hoja.filter(f => f.entrada);
+  $('cPresentes').textContent = presentes.length;
+  $('cRetardos').textContent = d.hoja.filter(f => f.estado === 'retardo').length;
+  $('cFaltas').textContent = d.hoja.length - presentes.length;
+
+  $('listaHoja').innerHTML = d.hoja.length ? d.hoja.map(f => {
+    const [clase, texto] = ETIQUETAS[f.estado] || ['sello-neutro', f.estado];
+    return `<div class="fila">
+      <div>
+        <div class="nombre">${f.nombre}</div>
+        ${f.materia ? `<div class="materia">${f.materia}</div>` : ''}
+      </div>
+      <span class="sello ${clase}">${texto}</span>
+      <div class="horas">
+        <small>Entrada</small>${f.entrada || '—'}
+        ${f.salida ? `<small style="margin-top:4px">Salida</small>${f.salida}` : ''}
+      </div>
+      ${f.entrada ? '' : `<button class="boton-claro" data-manual="${f.id}" title="Para quien llegó sin celular">Registrar</button>`}
+    </div>`;
+  }).join('') : '<p class="aviso">Todavía no hay docentes dados de alta. Empieza en la pestaña Docentes.</p>';
+
+  document.querySelectorAll('[data-manual]').forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    await fetch('/api/registro-manual', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: Number(b.dataset.manual) })
+    });
+    cargarHoja();
+  });
+}
+
+async function cargarDocentes() {
+  const r = await fetch('/api/docentes');
+  const lista = await r.json();
+  $('listaDocentes').innerHTML = lista.filter(d => d.activo).map(d => `
+    <div class="fila">
+      <div>
+        <div class="nombre">${d.nombre}</div>
+        <div class="materia mono">${d.materia || 'Sin materia'} · PIN ${d.pin}</div>
+      </div>
+      <span class="sello ${d.vinculado ? 'sello-puntual' : 'sello-neutro'}">${d.vinculado ? 'Teléfono vinculado' : 'Sin vincular'}</span>
+      ${d.vinculado ? `<button class="boton-claro" data-liberar="${d.id}" data-nombre="${d.nombre}">Autorizar teléfono nuevo</button>` : ''}
+      <button class="boton-claro" data-baja="${d.id}">Dar de baja</button>
+    </div>`).join('') || '<p class="aviso">Sin docentes registrados.</p>';
+
+  document.querySelectorAll('[data-baja]').forEach(b => b.onclick = async () => {
+    if (!confirm('¿Dar de baja a este docente? Su gafete dejará de funcionar.')) return;
+    await fetch('/api/docentes?id=' + b.dataset.baja, { method: 'DELETE' });
+    cargarDocentes(); cargarHoja();
+  });
+
+  document.querySelectorAll('[data-liberar]').forEach(b => b.onclick = async () => {
+    if (!confirm(`El teléfono actual de ${b.dataset.nombre} dejará de servirle. La próxima vez que escanee, cualquier teléfono con su PIN quedará vinculado como el nuevo. ¿Continuar?`)) return;
+    await fetch('/api/docentes/liberar', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: Number(b.dataset.liberar) })
+    });
+    cargarDocentes();
+  });
+}
+
+$('btnAlta').onclick = async () => {
+  const nombre = $('nNombre').value.trim();
+  if (!nombre) return $('nNombre').focus();
+  await fetch('/api/docentes', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, materia: $('nMateria').value.trim() })
+  });
+  $('nNombre').value = ''; $('nMateria').value = '';
+  cargarDocentes(); cargarHoja();
+};
+
+$('btnGuardar').onclick = async () => {
+  const r = await fetch('/api/config', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      escuela: $('aEscuela').value, hora_entrada: $('aEntrada').value,
+      tolerancia_min: $('aTolerancia').value, hora_corte: $('aCorte').value,
+      registrar_salida: $('aSalida').value, canal: $('aCanal').value,
+      telegram_token: $('aToken').value.trim(), telegram_chat: $('aChat').value.trim(),
+      wa_token: $('aWaToken').value.trim(), wa_phone_id: $('aWaPhone').value.trim(),
+      wa_destinos: $('aWaDestinos').value.trim(), wa_idioma: $('aWaIdioma').value.trim() || 'es_MX'
+    })
+  });
+  const d = await r.json();
+  $('msgAjustes').textContent = d.ok ? 'Ajustes guardados.' : 'No se pudieron guardar.';
+  cargarHoja();
+};
+
+$('btnProbar').onclick = async () => {
+  const d = await (await fetch('/api/probar-aviso', { method: 'POST' })).json();
+  $('msgAjustes').textContent = d.ok
+    ? 'Aviso enviado. Revisa el chat de Telegram.'
+    : 'No salió el aviso: revisa el token y el chat ID.';
+};
+
+async function cargarPunto() {
+  const l = await (await fetch('/api/liga-punto')).json();
+  $('ligaPunto').textContent = l.liga || '—';
+  $('aLat').value = config.escuela_lat || ''; $('aLng').value = config.escuela_lng || '';
+  $('aRadio').value = config.radio_m || '150'; $('aExigir').value = config.exigir_ubicacion || 'si';
+  $('aPin').value = config.exigir_pin || 'si';
+}
+
+$('btnUbicar').onclick = () => {
+  $('msgPunto').textContent = 'Leyendo la ubicación del dispositivo…';
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      $('aLat').value = pos.coords.latitude.toFixed(6);
+      $('aLng').value = pos.coords.longitude.toFixed(6);
+      $('msgPunto').textContent = `Listo, con precisión de ${Math.round(pos.coords.accuracy)} m. Ahora guarda.`;
+    },
+    () => { $('msgPunto').textContent = 'No se pudo leer la ubicación. Revisa los permisos del navegador.'; },
+    { enableHighAccuracy: true, timeout: 12000 }
+  );
+};
+
+$('btnGuardarPunto').onclick = async () => {
+  const r = await fetch('/api/config', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      escuela_lat: $('aLat').value.trim(), escuela_lng: $('aLng').value.trim(),
+      radio_m: $('aRadio').value, exigir_ubicacion: $('aExigir').value, exigir_pin: $('aPin').value
+    })
+  });
+  const d = await r.json();
+  config = d.config;
+  $('msgPunto').textContent = d.ok ? 'Guardado.' : 'No se pudo guardar.';
+};
+
+$('btnRenovar').onclick = async () => {
+  if (!confirm('El cartel que está pegado dejará de funcionar y hay que imprimir uno nuevo. ¿Continuar?')) return;
+  await fetch('/api/renovar-punto', { method: 'POST' });
+  cargarPunto();
+  $('msgPunto').textContent = 'Código nuevo generado. Imprime el cartel otra vez.';
+};
+
+$('btnCorte').onclick = async () => {
+  const d = await (await fetch('/api/probar-corte', { method: 'POST' })).json();
+  $('msgAjustes').textContent = d.ok
+    ? 'Aviso de faltas enviado con los datos de hoy.'
+    : 'No se pudo enviar.';
+};
+
+$('btnCsv').onclick = () => {
+  const f = new Date($('fecha').value + 'T12:00:00');
+  const p = n => String(n).padStart(2, '0');
+  const desde = `${f.getFullYear()}-${p(f.getMonth() + 1)}-01`;
+  const fin = new Date(f.getFullYear(), f.getMonth() + 1, 0);
+  const hasta = `${fin.getFullYear()}-${p(fin.getMonth() + 1)}-${p(fin.getDate())}`;
+  location.href = `/api/reporte.csv?desde=${desde}&hasta=${hasta}`;
+};
+
+$('fecha').onchange = cargarHoja;
+
+(async function inicio() {
+  const hoy = new Date();
+  const p = n => String(n).padStart(2, '0');
+  $('fecha').value = `${hoy.getFullYear()}-${p(hoy.getMonth() + 1)}-${p(hoy.getDate())}`;
+  await cargarHoja();
+  $('aEscuela').value = config.escuela; $('aEntrada').value = config.hora_entrada;
+  $('aTolerancia').value = config.tolerancia_min; $('aCorte').value = config.hora_corte;
+  $('aSalida').value = config.registrar_salida || 'no';
+  $('aToken').value = config.telegram_token; $('aChat').value = config.telegram_chat;
+  $('aCanal').value = config.canal || 'telegram';
+  $('aWaToken').value = config.wa_token || ''; $('aWaPhone').value = config.wa_phone_id || '';
+  $('aWaDestinos').value = config.wa_destinos || ''; $('aWaIdioma').value = config.wa_idioma || 'es_MX';
+  pintarCanal();
+  setInterval(cargarHoja, 30000);
+})();
+
+function pintarCanal() {
+  const c = $('aCanal').value;
+  $('bloqueTelegram').classList.toggle('oculto', c === 'whatsapp');
+  $('bloqueWhatsapp').classList.toggle('oculto', c === 'telegram');
+}
+$('aCanal').onchange = pintarCanal;
+</script>
+</body>
+</html>

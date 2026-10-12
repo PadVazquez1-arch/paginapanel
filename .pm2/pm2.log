@@ -1,0 +1,633 @@
+2026-08-26T16:57:53: PM2 log: ===============================================================================
+2026-08-26T16:57:53: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-26T16:57:53: PM2 log: Time                 : Wed Aug 26 2026 16:57:53 GMT-0500 (Central Daylight Time)
+2026-08-26T16:57:53: PM2 log: PM2 version          : 7.0.4
+2026-08-26T16:57:53: PM2 log: Node.js version      : 22.23.2
+2026-08-26T16:57:53: PM2 log: Current arch         : x64
+2026-08-26T16:57:53: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-26T16:57:53: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-26T16:57:53: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-26T16:57:53: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-26T16:57:53: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-26T16:57:53: PM2 log: Worker Interval      : 30000
+2026-08-26T16:57:53: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-26T16:57:53: PM2 log: Concurrent actions   : 2
+2026-08-26T16:57:53: PM2 log: SIGTERM timeout      : 1600
+2026-08-26T16:57:53: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-26T16:57:53: PM2 log: ===============================================================================
+2026-08-26T16:57:53: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-26T16:57:53: PM2 log: App [asistencia:0] online
+2026-08-26T17:03:05: PM2 log: ===============================================================================
+2026-08-26T17:03:05: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-26T17:03:05: PM2 log: Time                 : Wed Aug 26 2026 17:03:05 GMT-0500 (Central Daylight Time)
+2026-08-26T17:03:05: PM2 log: PM2 version          : 7.0.4
+2026-08-26T17:03:05: PM2 log: Node.js version      : 22.23.2
+2026-08-26T17:03:05: PM2 log: Current arch         : x64
+2026-08-26T17:03:05: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-26T17:03:05: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-26T17:03:05: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-26T17:03:05: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-26T17:03:05: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-26T17:03:05: PM2 log: Worker Interval      : 30000
+2026-08-26T17:03:05: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-26T17:03:05: PM2 log: Concurrent actions   : 2
+2026-08-26T17:03:05: PM2 log: SIGTERM timeout      : 1600
+2026-08-26T17:03:05: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-26T17:03:05: PM2 log: ===============================================================================
+2026-08-26T17:03:05: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-26T17:03:05: PM2 log: App [asistencia:0] online
+2026-08-26T17:03:22: PM2 log: Stopping app:asistencia id:0
+2026-08-26T17:03:22: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-26T17:03:22: PM2 log: pid=417 msg=process tree killed (1 pids)
+2026-08-26T17:03:23: PM2 log: PM2 successfully stopped
+2026-08-26T17:03:53: PM2 log: ===============================================================================
+2026-08-26T17:03:53: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-26T17:03:53: PM2 log: Time                 : Wed Aug 26 2026 17:03:53 GMT-0500 (Central Daylight Time)
+2026-08-26T17:03:53: PM2 log: PM2 version          : 7.0.4
+2026-08-26T17:03:53: PM2 log: Node.js version      : 22.23.2
+2026-08-26T17:03:53: PM2 log: Current arch         : x64
+2026-08-26T17:03:53: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-26T17:03:53: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-26T17:03:53: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-26T17:03:53: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-26T17:03:53: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-26T17:03:53: PM2 log: Worker Interval      : 30000
+2026-08-26T17:03:53: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-26T17:03:53: PM2 log: Concurrent actions   : 2
+2026-08-26T17:03:53: PM2 log: SIGTERM timeout      : 1600
+2026-08-26T17:03:53: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-26T17:03:53: PM2 log: ===============================================================================
+2026-08-26T17:03:54: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-26T17:03:54: PM2 log: App [asistencia:0] online
+2026-08-26T17:26:46: PM2 log: Stopping app:asistencia id:0
+2026-08-26T17:26:46: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-26T17:26:46: PM2 log: pid=393 msg=process tree killed (1 pids)
+2026-08-26T17:26:46: PM2 log: PM2 successfully stopped
+2026-08-26T17:27:53: PM2 log: ===============================================================================
+2026-08-26T17:27:53: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-26T17:27:53: PM2 log: Time                 : Wed Aug 26 2026 17:27:53 GMT-0500 (Central Daylight Time)
+2026-08-26T17:27:53: PM2 log: PM2 version          : 7.0.4
+2026-08-26T17:27:53: PM2 log: Node.js version      : 22.23.2
+2026-08-26T17:27:53: PM2 log: Current arch         : x64
+2026-08-26T17:27:53: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-26T17:27:53: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-26T17:27:53: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-26T17:27:53: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-26T17:27:53: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-26T17:27:53: PM2 log: Worker Interval      : 30000
+2026-08-26T17:27:53: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-26T17:27:53: PM2 log: Concurrent actions   : 2
+2026-08-26T17:27:53: PM2 log: SIGTERM timeout      : 1600
+2026-08-26T17:27:53: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-26T17:27:53: PM2 log: ===============================================================================
+2026-08-26T17:27:53: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-26T17:27:53: PM2 log: App [asistencia:0] online
+2026-08-26T21:03:52: PM2 log: Stopping app:asistencia id:0
+2026-08-26T21:03:52: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-26T21:03:52: PM2 log: pid=417 msg=process tree killed (1 pids)
+2026-08-26T21:03:52: PM2 log: PM2 successfully stopped
+2026-08-28T12:32:33: PM2 log: ===============================================================================
+2026-08-28T12:32:33: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-28T12:32:33: PM2 log: Time                 : Fri Aug 28 2026 12:32:33 GMT-0500 (Central Daylight Time)
+2026-08-28T12:32:33: PM2 log: PM2 version          : 7.0.4
+2026-08-28T12:32:33: PM2 log: Node.js version      : 22.23.2
+2026-08-28T12:32:33: PM2 log: Current arch         : x64
+2026-08-28T12:32:33: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-28T12:32:33: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-28T12:32:33: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-28T12:32:33: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-28T12:32:33: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-28T12:32:33: PM2 log: Worker Interval      : 30000
+2026-08-28T12:32:33: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-28T12:32:33: PM2 log: Concurrent actions   : 2
+2026-08-28T12:32:33: PM2 log: SIGTERM timeout      : 1600
+2026-08-28T12:32:33: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-28T12:32:33: PM2 log: ===============================================================================
+2026-08-28T12:32:33: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-28T12:32:33: PM2 log: App [asistencia:0] online
+2026-08-28T15:08:18: PM2 log: Stopping app:asistencia id:0
+2026-08-28T15:08:18: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-28T15:08:18: PM2 log: pid=480 msg=process tree killed (1 pids)
+2026-08-28T15:08:18: PM2 log: PM2 successfully stopped
+2026-08-31T06:17:39: PM2 log: ===============================================================================
+2026-08-31T06:17:39: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-31T06:17:39: PM2 log: Time                 : Mon Aug 31 2026 06:17:39 GMT-0500 (Central Daylight Time)
+2026-08-31T06:17:39: PM2 log: PM2 version          : 7.0.4
+2026-08-31T06:17:39: PM2 log: Node.js version      : 22.23.2
+2026-08-31T06:17:39: PM2 log: Current arch         : x64
+2026-08-31T06:17:39: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-31T06:17:39: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-31T06:17:39: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-31T06:17:39: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-31T06:17:39: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-31T06:17:39: PM2 log: Worker Interval      : 30000
+2026-08-31T06:17:39: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-31T06:17:39: PM2 log: Concurrent actions   : 2
+2026-08-31T06:17:39: PM2 log: SIGTERM timeout      : 1600
+2026-08-31T06:17:39: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-31T06:17:39: PM2 log: ===============================================================================
+2026-08-31T06:17:39: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-31T06:17:39: PM2 log: App [asistencia:0] online
+2026-08-31T06:43:49: PM2 log: Stopping app:asistencia id:0
+2026-08-31T06:43:49: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-31T06:43:50: PM2 log: pid=500 msg=process tree killed (1 pids)
+2026-08-31T06:43:50: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-31T06:43:50: PM2 log: App [asistencia:0] online
+2026-08-31T07:05:38: PM2 log: Stopping app:asistencia id:0
+2026-08-31T07:05:38: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-08-31T07:05:38: PM2 log: pid=751 msg=process tree killed (1 pids)
+2026-08-31T07:05:38: PM2 log: PM2 successfully stopped
+2026-08-31T07:20:10: PM2 log: ===============================================================================
+2026-08-31T07:20:10: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-31T07:20:10: PM2 log: Time                 : Mon Aug 31 2026 07:20:10 GMT-0500 (Central Daylight Time)
+2026-08-31T07:20:10: PM2 log: PM2 version          : 7.0.4
+2026-08-31T07:20:10: PM2 log: Node.js version      : 22.23.2
+2026-08-31T07:20:10: PM2 log: Current arch         : x64
+2026-08-31T07:20:10: PM2 log: PM2 home             : /home/ror/.pm2
+2026-08-31T07:20:10: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-08-31T07:20:10: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-08-31T07:20:10: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-08-31T07:20:10: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-08-31T07:20:10: PM2 log: Worker Interval      : 30000
+2026-08-31T07:20:10: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-08-31T07:20:10: PM2 log: Concurrent actions   : 2
+2026-08-31T07:20:10: PM2 log: SIGTERM timeout      : 1600
+2026-08-31T07:20:10: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-31T07:20:10: PM2 log: ===============================================================================
+2026-08-31T07:20:10: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-08-31T07:20:10: PM2 log: App [asistencia:0] online
+2026-09-01T07:02:16: PM2 log: Stopping app:asistencia id:0
+2026-09-01T07:02:16: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-01T07:02:16: PM2 log: pid=434 msg=process tree killed (1 pids)
+2026-09-01T07:02:16: PM2 log: PM2 successfully stopped
+2026-09-01T07:02:51: PM2 log: ===============================================================================
+2026-09-01T07:02:51: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-01T07:02:51: PM2 log: Time                 : Tue Sep 01 2026 07:02:51 GMT-0500 (Central Daylight Time)
+2026-09-01T07:02:51: PM2 log: PM2 version          : 7.0.4
+2026-09-01T07:02:51: PM2 log: Node.js version      : 22.23.2
+2026-09-01T07:02:51: PM2 log: Current arch         : x64
+2026-09-01T07:02:51: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-01T07:02:51: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-01T07:02:51: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-01T07:02:51: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-01T07:02:51: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-01T07:02:51: PM2 log: Worker Interval      : 30000
+2026-09-01T07:02:51: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-01T07:02:51: PM2 log: Concurrent actions   : 2
+2026-09-01T07:02:51: PM2 log: SIGTERM timeout      : 1600
+2026-09-01T07:02:51: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-01T07:02:51: PM2 log: ===============================================================================
+2026-09-01T07:02:51: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-01T07:02:51: PM2 log: App [asistencia:0] online
+2026-09-01T11:47:04: PM2 log: Stopping app:asistencia id:0
+2026-09-01T11:47:04: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-01T11:47:05: PM2 log: pid=479 msg=process tree killed (1 pids)
+2026-09-01T11:47:05: PM2 log: PM2 successfully stopped
+2026-09-02T07:01:09: PM2 log: ===============================================================================
+2026-09-02T07:01:09: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-02T07:01:09: PM2 log: Time                 : Wed Sep 02 2026 07:01:09 GMT-0500 (Central Daylight Time)
+2026-09-02T07:01:09: PM2 log: PM2 version          : 7.0.4
+2026-09-02T07:01:09: PM2 log: Node.js version      : 22.23.2
+2026-09-02T07:01:09: PM2 log: Current arch         : x64
+2026-09-02T07:01:09: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-02T07:01:09: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-02T07:01:09: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-02T07:01:09: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-02T07:01:09: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-02T07:01:09: PM2 log: Worker Interval      : 30000
+2026-09-02T07:01:09: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-02T07:01:09: PM2 log: Concurrent actions   : 2
+2026-09-02T07:01:09: PM2 log: SIGTERM timeout      : 1600
+2026-09-02T07:01:09: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-02T07:01:09: PM2 log: ===============================================================================
+2026-09-02T07:01:09: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-02T07:01:09: PM2 log: App [asistencia:0] online
+2026-09-02T10:56:24: PM2 log: Stopping app:asistencia id:0
+2026-09-02T10:56:24: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-02T10:56:24: PM2 log: pid=432 msg=process tree killed (1 pids)
+2026-09-02T10:56:25: PM2 log: PM2 successfully stopped
+2026-09-03T06:55:02: PM2 log: ===============================================================================
+2026-09-03T06:55:02: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-03T06:55:02: PM2 log: Time                 : Thu Sep 03 2026 06:55:02 GMT-0500 (Central Daylight Time)
+2026-09-03T06:55:02: PM2 log: PM2 version          : 7.0.4
+2026-09-03T06:55:02: PM2 log: Node.js version      : 22.23.2
+2026-09-03T06:55:02: PM2 log: Current arch         : x64
+2026-09-03T06:55:02: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-03T06:55:02: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-03T06:55:02: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-03T06:55:02: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-03T06:55:02: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-03T06:55:02: PM2 log: Worker Interval      : 30000
+2026-09-03T06:55:02: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-03T06:55:02: PM2 log: Concurrent actions   : 2
+2026-09-03T06:55:02: PM2 log: SIGTERM timeout      : 1600
+2026-09-03T06:55:02: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-03T06:55:02: PM2 log: ===============================================================================
+2026-09-03T06:55:02: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-03T06:55:02: PM2 log: App [asistencia:0] online
+2026-09-03T15:06:58: PM2 log: Stopping app:asistencia id:0
+2026-09-03T15:06:58: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-03T15:06:58: PM2 log: pid=415 msg=process tree killed (1 pids)
+2026-09-03T15:06:58: PM2 log: PM2 successfully stopped
+2026-09-04T07:14:40: PM2 log: ===============================================================================
+2026-09-04T07:14:40: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-04T07:14:40: PM2 log: Time                 : Fri Sep 04 2026 07:14:40 GMT-0500 (Central Daylight Time)
+2026-09-04T07:14:40: PM2 log: PM2 version          : 7.0.4
+2026-09-04T07:14:40: PM2 log: Node.js version      : 22.23.2
+2026-09-04T07:14:40: PM2 log: Current arch         : x64
+2026-09-04T07:14:40: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-04T07:14:40: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-04T07:14:40: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-04T07:14:40: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-04T07:14:40: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-04T07:14:40: PM2 log: Worker Interval      : 30000
+2026-09-04T07:14:40: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-04T07:14:40: PM2 log: Concurrent actions   : 2
+2026-09-04T07:14:40: PM2 log: SIGTERM timeout      : 1600
+2026-09-04T07:14:40: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-04T07:14:40: PM2 log: ===============================================================================
+2026-09-04T07:14:40: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-04T07:14:40: PM2 log: App [asistencia:0] online
+2026-09-04T08:06:36: PM2 log: Stopping app:asistencia id:0
+2026-09-04T08:06:36: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-04T08:06:36: PM2 log: pid=450 msg=process tree killed (1 pids)
+2026-09-04T08:06:37: PM2 log: PM2 successfully stopped
+2026-09-04T08:10:19: PM2 log: ===============================================================================
+2026-09-04T08:10:19: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-04T08:10:19: PM2 log: Time                 : Fri Sep 04 2026 08:10:19 GMT-0500 (Central Daylight Time)
+2026-09-04T08:10:19: PM2 log: PM2 version          : 7.0.4
+2026-09-04T08:10:19: PM2 log: Node.js version      : 22.23.2
+2026-09-04T08:10:19: PM2 log: Current arch         : x64
+2026-09-04T08:10:19: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-04T08:10:19: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-04T08:10:19: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-04T08:10:19: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-04T08:10:19: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-04T08:10:19: PM2 log: Worker Interval      : 30000
+2026-09-04T08:10:19: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-04T08:10:19: PM2 log: Concurrent actions   : 2
+2026-09-04T08:10:19: PM2 log: SIGTERM timeout      : 1600
+2026-09-04T08:10:19: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-04T08:10:19: PM2 log: ===============================================================================
+2026-09-04T08:10:19: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-04T08:10:19: PM2 log: App [asistencia:0] online
+2026-09-04T11:43:00: PM2 log: Stopping app:asistencia id:0
+2026-09-04T11:43:00: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-04T11:43:00: PM2 log: pid=413 msg=process tree killed (1 pids)
+2026-09-04T11:43:00: PM2 log: PM2 successfully stopped
+2026-09-07T07:36:09: PM2 log: ===============================================================================
+2026-09-07T07:36:09: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-07T07:36:09: PM2 log: Time                 : Mon Sep 07 2026 07:36:09 GMT-0500 (Central Daylight Time)
+2026-09-07T07:36:09: PM2 log: PM2 version          : 7.0.4
+2026-09-07T07:36:09: PM2 log: Node.js version      : 22.23.2
+2026-09-07T07:36:09: PM2 log: Current arch         : x64
+2026-09-07T07:36:09: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-07T07:36:09: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-07T07:36:09: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-07T07:36:09: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-07T07:36:09: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-07T07:36:09: PM2 log: Worker Interval      : 30000
+2026-09-07T07:36:09: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-07T07:36:09: PM2 log: Concurrent actions   : 2
+2026-09-07T07:36:09: PM2 log: SIGTERM timeout      : 1600
+2026-09-07T07:36:09: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-07T07:36:09: PM2 log: ===============================================================================
+2026-09-07T07:36:09: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-07T07:36:09: PM2 log: App [asistencia:0] online
+2026-09-07T10:37:33: PM2 log: Stopping app:asistencia id:0
+2026-09-07T10:37:33: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-07T10:37:33: PM2 log: pid=534 msg=process tree killed (1 pids)
+2026-09-07T10:37:33: PM2 log: PM2 successfully stopped
+2026-09-08T06:54:53: PM2 log: ===============================================================================
+2026-09-08T06:54:53: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-08T06:54:53: PM2 log: Time                 : Tue Sep 08 2026 06:54:53 GMT-0500 (Central Daylight Time)
+2026-09-08T06:54:53: PM2 log: PM2 version          : 7.0.4
+2026-09-08T06:54:53: PM2 log: Node.js version      : 22.23.2
+2026-09-08T06:54:53: PM2 log: Current arch         : x64
+2026-09-08T06:54:53: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-08T06:54:53: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-08T06:54:53: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-08T06:54:53: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-08T06:54:54: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-08T06:54:54: PM2 log: Worker Interval      : 30000
+2026-09-08T06:54:54: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-08T06:54:54: PM2 log: Concurrent actions   : 2
+2026-09-08T06:54:54: PM2 log: SIGTERM timeout      : 1600
+2026-09-08T06:54:54: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-08T06:54:54: PM2 log: ===============================================================================
+2026-09-08T06:54:54: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-08T06:54:54: PM2 log: App [asistencia:0] online
+2026-09-08T10:32:06: PM2 log: Stopping app:asistencia id:0
+2026-09-08T10:32:06: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-08T10:32:07: PM2 log: pid=444 msg=process tree killed (1 pids)
+2026-09-08T10:32:07: PM2 log: PM2 successfully stopped
+2026-09-09T07:24:13: PM2 log: ===============================================================================
+2026-09-09T07:24:13: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-09T07:24:13: PM2 log: Time                 : Wed Sep 09 2026 07:24:13 GMT-0500 (Central Daylight Time)
+2026-09-09T07:24:13: PM2 log: PM2 version          : 7.0.4
+2026-09-09T07:24:13: PM2 log: Node.js version      : 22.23.2
+2026-09-09T07:24:13: PM2 log: Current arch         : x64
+2026-09-09T07:24:13: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-09T07:24:13: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-09T07:24:13: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-09T07:24:13: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-09T07:24:13: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-09T07:24:13: PM2 log: Worker Interval      : 30000
+2026-09-09T07:24:13: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-09T07:24:13: PM2 log: Concurrent actions   : 2
+2026-09-09T07:24:13: PM2 log: SIGTERM timeout      : 1600
+2026-09-09T07:24:13: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-09T07:24:13: PM2 log: ===============================================================================
+2026-09-09T07:24:13: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-09T07:24:13: PM2 log: App [asistencia:0] online
+2026-09-09T12:33:24: PM2 log: Stopping app:asistencia id:0
+2026-09-09T12:33:24: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-09T12:33:25: PM2 log: pid=446 msg=process tree killed (1 pids)
+2026-09-09T12:33:25: PM2 log: PM2 successfully stopped
+2026-09-09T19:41:23: PM2 log: ===============================================================================
+2026-09-09T19:41:23: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-09T19:41:23: PM2 log: Time                 : Wed Sep 09 2026 19:41:23 GMT-0500 (Central Daylight Time)
+2026-09-09T19:41:23: PM2 log: PM2 version          : 7.0.4
+2026-09-09T19:41:23: PM2 log: Node.js version      : 22.23.2
+2026-09-09T19:41:23: PM2 log: Current arch         : x64
+2026-09-09T19:41:23: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-09T19:41:23: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-09T19:41:23: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-09T19:41:23: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-09T19:41:23: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-09T19:41:23: PM2 log: Worker Interval      : 30000
+2026-09-09T19:41:23: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-09T19:41:23: PM2 log: Concurrent actions   : 2
+2026-09-09T19:41:23: PM2 log: SIGTERM timeout      : 1600
+2026-09-09T19:41:23: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-09T19:41:23: PM2 log: ===============================================================================
+2026-09-09T19:41:23: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-09T19:41:24: PM2 log: App [asistencia:0] online
+2026-09-10T13:49:56: PM2 log: Stopping app:asistencia id:0
+2026-09-10T13:49:56: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-10T13:49:57: PM2 log: pid=475 msg=process tree killed (1 pids)
+2026-09-10T13:49:57: PM2 log: PM2 successfully stopped
+2026-09-10T22:07:06: PM2 log: ===============================================================================
+2026-09-10T22:07:06: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-10T22:07:06: PM2 log: Time                 : Thu Sep 10 2026 22:07:06 GMT-0500 (Central Daylight Time)
+2026-09-10T22:07:06: PM2 log: PM2 version          : 7.0.4
+2026-09-10T22:07:06: PM2 log: Node.js version      : 22.23.2
+2026-09-10T22:07:06: PM2 log: Current arch         : x64
+2026-09-10T22:07:06: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-10T22:07:06: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-10T22:07:06: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-10T22:07:06: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-10T22:07:06: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-10T22:07:06: PM2 log: Worker Interval      : 30000
+2026-09-10T22:07:06: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-10T22:07:06: PM2 log: Concurrent actions   : 2
+2026-09-10T22:07:06: PM2 log: SIGTERM timeout      : 1600
+2026-09-10T22:07:06: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-10T22:07:06: PM2 log: ===============================================================================
+2026-09-10T22:07:06: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-10T22:07:06: PM2 log: App [asistencia:0] online
+                                                                                                                                                                                                                                                                                   2026-09-11T04:44:25: PM2 log: ===============================================================================
+2026-09-11T04:44:25: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-11T04:44:25: PM2 log: Time                 : Fri Sep 11 2026 04:44:25 GMT-0500 (Central Daylight Time)
+2026-09-11T04:44:25: PM2 log: PM2 version          : 7.0.4
+2026-09-11T04:44:25: PM2 log: Node.js version      : 22.23.2
+2026-09-11T04:44:25: PM2 log: Current arch         : x64
+2026-09-11T04:44:25: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-11T04:44:25: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-11T04:44:25: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-11T04:44:25: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-11T04:44:25: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-11T04:44:25: PM2 log: Worker Interval      : 30000
+2026-09-11T04:44:25: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-11T04:44:25: PM2 log: Concurrent actions   : 2
+2026-09-11T04:44:25: PM2 log: SIGTERM timeout      : 1600
+2026-09-11T04:44:25: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-11T04:44:25: PM2 log: ===============================================================================
+2026-09-11T04:44:25: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-11T04:44:25: PM2 log: App [asistencia:0] online
+2026-09-13T11:37:48: PM2 log: Stopping app:asistencia id:0
+2026-09-13T11:37:48: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-13T11:37:48: PM2 log: pid=423 msg=process tree killed (1 pids)
+2026-09-13T11:37:48: PM2 log: PM2 successfully stopped
+2026-09-13T14:16:47: PM2 log: ===============================================================================
+2026-09-13T14:16:47: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-13T14:16:47: PM2 log: Time                 : Sun Sep 13 2026 14:16:47 GMT-0500 (Central Daylight Time)
+2026-09-13T14:16:47: PM2 log: PM2 version          : 7.0.4
+2026-09-13T14:16:47: PM2 log: Node.js version      : 22.23.2
+2026-09-13T14:16:47: PM2 log: Current arch         : x64
+2026-09-13T14:16:47: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-13T14:16:47: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-13T14:16:47: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-13T14:16:47: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-13T14:16:47: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-13T14:16:47: PM2 log: Worker Interval      : 30000
+2026-09-13T14:16:47: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-13T14:16:47: PM2 log: Concurrent actions   : 2
+2026-09-13T14:16:47: PM2 log: SIGTERM timeout      : 1600
+2026-09-13T14:16:47: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-13T14:16:47: PM2 log: ===============================================================================
+2026-09-13T14:16:47: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-13T14:16:47: PM2 log: App [asistencia:0] online
+2026-09-13T19:40:33: PM2 log: Stopping app:asistencia id:0
+2026-09-13T19:40:33: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-13T19:40:33: PM2 log: pid=425 msg=process tree killed (1 pids)
+2026-09-13T19:40:33: PM2 log: PM2 successfully stopped
+2026-09-15T07:12:20: PM2 log: ===============================================================================
+2026-09-15T07:12:20: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-15T07:12:20: PM2 log: Time                 : Tue Sep 15 2026 07:12:20 GMT-0500 (Central Daylight Time)
+2026-09-15T07:12:20: PM2 log: PM2 version          : 7.0.4
+2026-09-15T07:12:20: PM2 log: Node.js version      : 22.23.2
+2026-09-15T07:12:20: PM2 log: Current arch         : x64
+2026-09-15T07:12:20: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-15T07:12:20: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-15T07:12:20: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-15T07:12:20: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-15T07:12:20: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-15T07:12:20: PM2 log: Worker Interval      : 30000
+2026-09-15T07:12:20: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-15T07:12:20: PM2 log: Concurrent actions   : 2
+2026-09-15T07:12:20: PM2 log: SIGTERM timeout      : 1600
+2026-09-15T07:12:20: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-15T07:12:20: PM2 log: ===============================================================================
+2026-09-15T07:12:21: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-15T07:12:21: PM2 log: App [asistencia:0] online
+2026-09-17T12:22:07: PM2 log: ===============================================================================
+2026-09-17T12:22:07: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-17T12:22:07: PM2 log: Time                 : Thu Sep 17 2026 12:22:07 GMT-0500 (Central Daylight Time)
+2026-09-17T12:22:07: PM2 log: PM2 version          : 7.0.4
+2026-09-17T12:22:07: PM2 log: Node.js version      : 22.23.2
+2026-09-17T12:22:07: PM2 log: Current arch         : x64
+2026-09-17T12:22:07: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-17T12:22:07: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-17T12:22:07: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-17T12:22:07: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-17T12:22:07: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-17T12:22:07: PM2 log: Worker Interval      : 30000
+2026-09-17T12:22:07: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-17T12:22:07: PM2 log: Concurrent actions   : 2
+2026-09-17T12:22:07: PM2 log: SIGTERM timeout      : 1600
+2026-09-17T12:22:07: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-17T12:22:07: PM2 log: ===============================================================================
+2026-09-17T12:22:07: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-17T12:22:07: PM2 log: App [asistencia:0] online
+2026-09-18T12:40:58: PM2 log: Stopping app:asistencia id:0
+2026-09-18T12:40:58: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-18T12:40:58: PM2 log: pid=483 msg=process tree killed (1 pids)
+2026-09-18T12:40:58: PM2 log: PM2 successfully stopped
+2026-09-18T13:01:49: PM2 log: ===============================================================================
+2026-09-18T13:01:49: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-18T13:01:49: PM2 log: Time                 : Fri Sep 18 2026 13:01:49 GMT-0500 (Central Daylight Time)
+2026-09-18T13:01:49: PM2 log: PM2 version          : 7.0.4
+2026-09-18T13:01:49: PM2 log: Node.js version      : 22.23.2
+2026-09-18T13:01:49: PM2 log: Current arch         : x64
+2026-09-18T13:01:49: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-18T13:01:49: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-18T13:01:49: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-18T13:01:49: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-18T13:01:49: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-18T13:01:49: PM2 log: Worker Interval      : 30000
+2026-09-18T13:01:49: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-18T13:01:49: PM2 log: Concurrent actions   : 2
+2026-09-18T13:01:49: PM2 log: SIGTERM timeout      : 1600
+2026-09-18T13:01:49: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-18T13:01:49: PM2 log: ===============================================================================
+2026-09-18T13:01:49: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-18T13:01:49: PM2 log: App [asistencia:0] online
+2026-09-18T13:02:13: PM2 log: Stopping app:asistencia id:0
+2026-09-18T13:02:13: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-18T13:02:13: PM2 log: pid=428 msg=process tree killed (1 pids)
+2026-09-18T13:02:13: PM2 log: PM2 successfully stopped
+2026-09-21T15:00:03: PM2 log: ===============================================================================
+2026-09-21T15:00:03: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-21T15:00:03: PM2 log: Time                 : Mon Sep 21 2026 15:00:03 GMT-0500 (Central Daylight Time)
+2026-09-21T15:00:03: PM2 log: PM2 version          : 7.0.4
+2026-09-21T15:00:03: PM2 log: Node.js version      : 22.23.2
+2026-09-21T15:00:03: PM2 log: Current arch         : x64
+2026-09-21T15:00:03: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-21T15:00:03: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-21T15:00:03: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-21T15:00:03: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-21T15:00:03: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-21T15:00:03: PM2 log: Worker Interval      : 30000
+2026-09-21T15:00:03: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-21T15:00:03: PM2 log: Concurrent actions   : 2
+2026-09-21T15:00:03: PM2 log: SIGTERM timeout      : 1600
+2026-09-21T15:00:03: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-21T15:00:03: PM2 log: ===============================================================================
+2026-09-21T15:00:03: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-21T15:00:03: PM2 log: App [asistencia:0] online
+2026-09-21T15:24:36: PM2 log: Stopping app:asistencia id:0
+2026-09-21T15:24:36: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-21T15:24:36: PM2 log: pid=528 msg=process tree killed (1 pids)
+2026-09-21T15:24:36: PM2 log: PM2 successfully stopped
+2026-09-22T07:03:11: PM2 log: ===============================================================================
+2026-09-22T07:03:11: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-22T07:03:11: PM2 log: Time                 : Tue Sep 22 2026 07:03:11 GMT-0500 (Central Daylight Time)
+2026-09-22T07:03:11: PM2 log: PM2 version          : 7.0.4
+2026-09-22T07:03:11: PM2 log: Node.js version      : 22.23.2
+2026-09-22T07:03:11: PM2 log: Current arch         : x64
+2026-09-22T07:03:11: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-22T07:03:11: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-22T07:03:11: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-22T07:03:11: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-22T07:03:11: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-22T07:03:11: PM2 log: Worker Interval      : 30000
+2026-09-22T07:03:11: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-22T07:03:11: PM2 log: Concurrent actions   : 2
+2026-09-22T07:03:11: PM2 log: SIGTERM timeout      : 1600
+2026-09-22T07:03:11: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-22T07:03:11: PM2 log: ===============================================================================
+2026-09-22T07:03:11: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-22T07:03:11: PM2 log: App [asistencia:0] online
+2026-09-23T09:51:57: PM2 log: Stopping app:asistencia id:0
+2026-09-23T09:51:57: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-23T09:51:58: PM2 log: pid=546 msg=process tree killed (1 pids)
+2026-09-23T09:51:58: PM2 log: PM2 successfully stopped
+2026-09-24T07:20:03: PM2 log: ===============================================================================
+2026-09-24T07:20:04: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-24T07:20:04: PM2 log: Time                 : Thu Sep 24 2026 07:20:04 GMT-0500 (Central Daylight Time)
+2026-09-24T07:20:04: PM2 log: PM2 version          : 7.0.4
+2026-09-24T07:20:04: PM2 log: Node.js version      : 22.23.2
+2026-09-24T07:20:04: PM2 log: Current arch         : x64
+2026-09-24T07:20:04: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-24T07:20:04: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-24T07:20:04: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-24T07:20:04: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-24T07:20:04: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-24T07:20:04: PM2 log: Worker Interval      : 30000
+2026-09-24T07:20:04: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-24T07:20:04: PM2 log: Concurrent actions   : 2
+2026-09-24T07:20:04: PM2 log: SIGTERM timeout      : 1600
+2026-09-24T07:20:04: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-24T07:20:04: PM2 log: ===============================================================================
+2026-09-24T07:20:04: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-24T07:20:04: PM2 log: App [asistencia:0] online
+2026-09-24T12:28:08: PM2 log: Stopping app:asistencia id:0
+2026-09-24T12:28:08: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-24T12:28:08: PM2 log: pid=569 msg=process tree killed (1 pids)
+2026-09-24T12:28:08: PM2 log: PM2 successfully stopped
+2026-09-25T05:44:51: PM2 log: ===============================================================================
+2026-09-25T05:44:51: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-09-25T05:44:51: PM2 log: Time                 : Fri Sep 25 2026 05:44:51 GMT-0600 (Central Standard Time)
+2026-09-25T05:44:51: PM2 log: PM2 version          : 7.0.4
+2026-09-25T05:44:51: PM2 log: Node.js version      : 22.23.2
+2026-09-25T05:44:51: PM2 log: Current arch         : x64
+2026-09-25T05:44:51: PM2 log: PM2 home             : /home/ror/.pm2
+2026-09-25T05:44:51: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-09-25T05:44:51: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-09-25T05:44:51: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-09-25T05:44:51: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-09-25T05:44:51: PM2 log: Worker Interval      : 30000
+2026-09-25T05:44:51: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-09-25T05:44:51: PM2 log: Concurrent actions   : 2
+2026-09-25T05:44:51: PM2 log: SIGTERM timeout      : 1600
+2026-09-25T05:44:51: PM2 log: Runtime Binary       : /usr/bin/node
+2026-09-25T05:44:51: PM2 log: ===============================================================================
+2026-09-25T05:44:52: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-09-25T05:44:52: PM2 log: App [asistencia:0] online
+2026-09-25T07:42:32: PM2 log: Stopping app:asistencia id:0
+2026-09-25T07:42:32: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-09-25T07:42:33: PM2 log: pid=470 msg=process tree killed (1 pids)
+2026-09-25T07:42:33: PM2 log: PM2 successfully stopped
+2026-10-05T12:45:32: PM2 log: ===============================================================================
+2026-10-05T12:45:32: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-10-05T12:45:32: PM2 log: Time                 : Mon Oct 05 2026 12:45:32 GMT-0500 (Central Daylight Time)
+2026-10-05T12:45:32: PM2 log: PM2 version          : 7.0.4
+2026-10-05T12:45:32: PM2 log: Node.js version      : 22.23.2
+2026-10-05T12:45:32: PM2 log: Current arch         : x64
+2026-10-05T12:45:32: PM2 log: PM2 home             : /home/ror/.pm2
+2026-10-05T12:45:32: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-10-05T12:45:32: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-10-05T12:45:32: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-10-05T12:45:32: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-10-05T12:45:32: PM2 log: Worker Interval      : 30000
+2026-10-05T12:45:32: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-10-05T12:45:32: PM2 log: Concurrent actions   : 2
+2026-10-05T12:45:32: PM2 log: SIGTERM timeout      : 1600
+2026-10-05T12:45:32: PM2 log: Runtime Binary       : /usr/bin/node
+2026-10-05T12:45:32: PM2 log: ===============================================================================
+2026-10-05T12:45:32: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-10-05T12:45:32: PM2 log: App [asistencia:0] online
+2026-10-05T12:48:55: PM2 log: Stopping app:asistencia id:0
+2026-10-05T12:48:55: PM2 log: App [asistencia:0] exited with code [0] via signal [SIGINT]
+2026-10-05T12:48:55: PM2 log: pid=474 msg=process tree killed (1 pids)
+2026-10-05T12:48:55: PM2 log: PM2 successfully stopped
+2026-10-12T07:35:46: PM2 log: ===============================================================================
+2026-10-12T07:35:46: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-10-12T07:35:46: PM2 log: Time                 : Mon Oct 12 2026 07:35:46 GMT-0500 (Central Daylight Time)
+2026-10-12T07:35:46: PM2 log: PM2 version          : 7.0.4
+2026-10-12T07:35:46: PM2 log: Node.js version      : 22.23.2
+2026-10-12T07:35:46: PM2 log: Current arch         : x64
+2026-10-12T07:35:46: PM2 log: PM2 home             : /home/ror/.pm2
+2026-10-12T07:35:46: PM2 log: PM2 PID file         : /home/ror/.pm2/pm2.pid
+2026-10-12T07:35:46: PM2 log: RPC socket file      : /home/ror/.pm2/rpc.sock
+2026-10-12T07:35:46: PM2 log: BUS socket file      : /home/ror/.pm2/pub.sock
+2026-10-12T07:35:46: PM2 log: Application log path : /home/ror/.pm2/logs
+2026-10-12T07:35:46: PM2 log: Worker Interval      : 30000
+2026-10-12T07:35:46: PM2 log: Process dump file    : /home/ror/.pm2/dump.pm2
+2026-10-12T07:35:46: PM2 log: Concurrent actions   : 2
+2026-10-12T07:35:46: PM2 log: SIGTERM timeout      : 1600
+2026-10-12T07:35:46: PM2 log: Runtime Binary       : /usr/bin/node
+2026-10-12T07:35:46: PM2 log: ===============================================================================
+2026-10-12T07:35:46: PM2 log: App [asistencia:0] starting in -fork mode-
+2026-10-12T07:35:47: PM2 log: App [asistencia:0] online

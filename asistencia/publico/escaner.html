@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estación de entrada</title>
+<link rel="stylesheet" href="/estilo.css">
+<style>
+  body { background: var(--tinta); color: var(--papel-claro); min-height: 100dvh; }
+  .visor { position: relative; width: 100%; max-width: 520px; margin: 0 auto; aspect-ratio: 1; overflow: hidden; background: #0b1526; }
+  video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .marco { position: absolute; inset: 12%; pointer-events: none; }
+  .marco span { position: absolute; width: 34px; height: 34px; border: 3px solid var(--papel-claro); opacity: .85; }
+  .marco span:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+  .marco span:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+  .marco span:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+  .marco span:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+  .indicacion { text-align: center; padding: 18px 20px 6px; }
+  .indicacion p { margin: 6px 0 0; font-size: .85rem; color: #9fb0cc; }
+  .reloj { font-family: var(--mono); font-size: 2.6rem; font-weight: 500; letter-spacing: .02em; }
+
+  /* Sello: el elemento firma de la aplicación */
+  .capa { position: fixed; inset: 0; background: rgba(11,21,38,.94); display: none; place-items: center; z-index: 20; padding: 24px; }
+  .capa.visible { display: grid; }
+  .estampa {
+    border: 5px double currentColor; border-radius: 4px; padding: 22px 26px; text-align: center;
+    transform: rotate(-7deg) scale(1); animation: estampar .34s cubic-bezier(.2,1.6,.4,1);
+    max-width: 420px;
+  }
+  .estampa .tipo { font-family: var(--mono); font-size: .8rem; letter-spacing: .28em; text-transform: uppercase; }
+  .estampa .quien { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; line-height: 1.1; margin: 10px 0 6px; letter-spacing: .02em; }
+  .estampa .dato { font-family: var(--mono); font-size: 2.3rem; font-weight: 600; }
+  .estampa .nota { font-size: .78rem; opacity: .85; margin-top: 6px; }
+  .ok { color: #7fd6a3; } .tarde { color: #f0b559; } .mal { color: #f28b82; } .fuera { color: #9fc4f5; }
+  @keyframes estampar { 0% { transform: rotate(-7deg) scale(2.2); opacity: 0 } 60% { opacity: 1 } 100% { transform: rotate(-7deg) scale(1); opacity: 1 } }
+  @media (prefers-reduced-motion: reduce) { .estampa { animation: none } }
+
+  .pie { max-width: 520px; margin: 0 auto; padding: 18px 20px 40px; display: flex; gap: 10px; align-items: center; }
+  .pie input { flex: 1; }
+  .pie button { border-color: var(--papel-claro); background: transparent; color: var(--papel-claro); }
+</style>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="crece">
+      <h1>Estación de entrada</h1>
+      <span class="rotulo" id="lugar">Acceso principal</span>
+    </div>
+    <a class="boton boton-claro" style="color:var(--papel-claro);border-color:#3d5680" href="/api/salir">Cerrar</a>
+  </header>
+
+  <div class="indicacion">
+    <div class="reloj mono" id="reloj">--:--</div>
+    <p>Acerca tu gafete al recuadro</p>
+  </div>
+
+  <div class="visor">
+    <video id="video" playsinline muted></video>
+    <div class="marco"><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="pie">
+    <input id="manual" placeholder="Código del gafete" autocomplete="off">
+    <button id="btnManual">Registrar</button>
+  </div>
+  <p class="aviso" style="text-align:center;color:#9fb0cc;padding:0 20px" id="estado">Iniciando cámara…</p>
+
+  <div class="capa" id="capa"><div class="estampa" id="estampa"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script>
+const video = document.getElementById('video');
+const capa = document.getElementById('capa');
+const estampa = document.getElementById('estampa');
+const estado = document.getElementById('estado');
+const lienzo = document.createElement('canvas');
+const ctx = lienzo.getContext('2d', { willReadFrequently: true });
+let ultimoCodigo = '', ultimoMomento = 0, ocupado = false;
+
+const dosDig = n => String(n).padStart(2, '0');
+setInterval(() => {
+  const a = new Date();
+  document.getElementById('reloj').textContent = `${dosDig(a.getHours())}:${dosDig(a.getMinutes())}`;
+}, 1000);
+
+function pitido(agudo = true) {
+  try {
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.frequency.value = agudo ? 880 : 220; o.connect(g); g.connect(ac.destination);
+    g.gain.setValueAtTime(.15, ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001, ac.currentTime + .25);
+    o.start(); o.stop(ac.currentTime + .25);
+  } catch {}
+}
+
+function mostrar(resultado) {
+  const mapa = {
+    puntual: { clase: 'ok',    tipo: 'Entrada registrada', nota: 'Llegada puntual' },
+    retardo: { clase: 'tarde', tipo: 'Entrada con retardo', nota: 'Se avisó a dirección' },
+    salida:  { clase: 'fuera', tipo: 'Salida registrada',   nota: 'Buen día' },
+  };
+  const m = resultado.ok ? (mapa[resultado.estado] || mapa.salida)
+                         : { clase: 'mal', tipo: 'No registrado', nota: resultado.motivo || 'Intenta de nuevo' };
+  estampa.className = 'estampa ' + m.clase;
+  estampa.innerHTML = resultado.ok
+    ? `<div class="tipo">${m.tipo}</div>
+       <div class="quien">${resultado.docente}</div>
+       <div class="dato">${resultado.hora}</div>
+       <div class="nota">${resultado.repetido ? 'Ya estaba registrado' : m.nota}</div>`
+    : `<div class="tipo">${m.tipo}</div><div class="quien">Gafete no válido</div><div class="nota">${m.nota}</div>`;
+  capa.classList.add('visible');
+  pitido(resultado.ok);
+  setTimeout(() => { capa.classList.remove('visible'); ocupado = false; }, 2600);
+}
+
+async function enviar(codigo) {
+  if (ocupado) return;
+  ocupado = true;
+  try {
+    const r = await fetch('/api/escanear', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: codigo, estacion: document.getElementById('lugar').textContent })
+    });
+    if (r.status === 401) { location.href = '/entrar'; return; }
+    mostrar(await r.json());
+  } catch {
+    mostrar({ ok: false, motivo: 'Sin conexión con el servidor' });
+  }
+}
+
+document.getElementById('btnManual').onclick = () => {
+  const v = document.getElementById('manual');
+  if (v.value.trim()) { enviar(v.value.trim()); v.value = ''; }
+};
+
+function revisar() {
+  if (video.readyState === video.HAVE_ENOUGH_DATA && !ocupado) {
+    lienzo.width = video.videoWidth; lienzo.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0, lienzo.width, lienzo.height);
+    const img = ctx.getImageData(0, 0, lienzo.width, lienzo.height);
+    const codigo = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
+    if (codigo && codigo.data) {
+      const ahora = Date.now();
+      if (codigo.data !== ultimoCodigo || ahora - ultimoMomento > 4000) {
+        ultimoCodigo = codigo.data; ultimoMomento = ahora;
+        enviar(codigo.data);
+      }
+    }
+  }
+  requestAnimationFrame(revisar);
+}
+
+navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+  .then(flujo => {
+    video.srcObject = flujo;
+    video.play();
+    estado.textContent = 'Cámara lista. El registro es automático.';
+    requestAnimationFrame(revisar);
+  })
+  .catch(() => {
+    estado.innerHTML = 'No se pudo abrir la cámara. Revisa los permisos del navegador y que la página se abra con <b>https</b>. Mientras tanto puedes escribir el código del gafete.';
+  });
+</script>
+</body>
+</html>

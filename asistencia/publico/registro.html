@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Registro de entrada</title>
+<link rel="stylesheet" href="/estilo.css">
+<style>
+  body { background: var(--tinta); color: var(--papel-claro); min-height: 100dvh; display: flex; flex-direction: column; }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 460px; margin: 0 auto; width: 100%; padding: 24px 20px 40px; }
+  .escuela { text-align: center; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: #9fb0cc; }
+  .reloj { font-family: var(--mono); font-size: 4rem; font-weight: 500; text-align: center; line-height: 1; margin: 14px 0 4px; }
+  .dia { text-align: center; font-size: .8rem; color: #9fb0cc; margin-bottom: 28px; }
+  .saludo { text-align: center; font-size: 1.5rem; font-weight: 800; text-transform: uppercase; line-height: 1.15; margin-bottom: 22px; }
+  select, input { background: #0b1526; color: var(--papel-claro); border-color: #3d5680; }
+  select option { color: #14243f; background: #fff; }
+
+  .grande {
+    width: 100%; padding: 26px 20px; font-size: 1.15rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .08em; background: var(--papel-claro); color: var(--tinta); border-color: var(--papel-claro);
+  }
+  .grande[disabled] { opacity: .5; }
+  .secundario { background: transparent; color: #9fb0cc; border: 0; font-size: .78rem; text-decoration: underline; padding: 14px 0 0; width: 100%; }
+
+  .mensaje { text-align: center; margin-top: 16px; font-size: .88rem; line-height: 1.45; min-height: 1.2em; }
+  .mensaje.malo { color: #f28b82; }
+
+  /* El sello: mismo lenguaje visual que el resto del sistema */
+  .capa { position: fixed; inset: 0; background: rgba(11,21,38,.96); display: none; place-items: center; padding: 24px; z-index: 20; }
+  .capa.visible { display: grid; }
+  .estampa {
+    border: 5px double currentColor; border-radius: 4px; padding: 26px 30px; text-align: center;
+    transform: rotate(-7deg); animation: estampar .34s cubic-bezier(.2,1.6,.4,1); max-width: 400px;
+  }
+  .estampa .tipo { font-family: var(--mono); font-size: .78rem; letter-spacing: .26em; text-transform: uppercase; }
+  .estampa .quien { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; line-height: 1.1; margin: 10px 0 6px; }
+  .estampa .dato { font-family: var(--mono); font-size: 2.6rem; font-weight: 600; }
+  .estampa .nota { font-size: .78rem; opacity: .85; margin-top: 8px; }
+  .ok { color: #7fd6a3; } .tarde { color: #f0b559; }
+  @keyframes estampar { 0% { transform: rotate(-7deg) scale(2.2); opacity: 0 } 60% { opacity: 1 } 100% { transform: rotate(-7deg) scale(1); opacity: 1 } }
+  @media (prefers-reduced-motion: reduce) { .estampa { animation: none } }
+</style>
+</head>
+<body>
+  <main>
+    <div class="escuela" id="escuela">—</div>
+    <div class="reloj" id="reloj">--:--</div>
+    <div class="dia" id="dia"></div>
+
+    <div id="zona"><p class="mensaje">Cargando…</p></div>
+    <p class="mensaje" id="mensaje"></p>
+  </main>
+
+  <div class="capa" id="capa"><div class="estampa" id="estampa"></div></div>
+
+<script>
+const codigo = location.pathname.split('/').pop();
+const $ = (id) => document.getElementById(id);
+let punto = null, ocupado = false;
+
+const p = (n) => String(n).padStart(2, '0');
+function reloj() {
+  const a = new Date();
+  $('reloj').textContent = `${p(a.getHours())}:${p(a.getMinutes())}`;
+  $('dia').textContent = a.toLocaleDateString('es-MX', { weekday: 'long', day: 'numeric', month: 'long' });
+}
+reloj(); setInterval(reloj, 1000);
+
+function pintar() {
+  if (punto.yo) {
+    $('zona').innerHTML = `
+      <div class="saludo">Hola,<br>${punto.yo.nombre}</div>
+      <button class="grande" id="btn">Registrar mi entrada</button>
+      <p class="secundario" style="text-decoration:none">¿No eres tú? Pide a dirección que revise la vinculación de este teléfono.</p>`;
+  } else {
+    $('zona').innerHTML = `
+      <label><span class="rotulo" style="color:#9fb0cc">¿Quién eres?</span>
+        <select id="quien">
+          <option value="">Selecciona tu nombre</option>
+          ${punto.docentes.map((d) => `<option value="${d.id}">${d.nombre}</option>`).join('')}
+        </select>
+      </label>
+      ${punto.exigir_pin ? `<label><span class="rotulo" style="color:#9fb0cc">Tu PIN de 4 dígitos</span>
+        <input id="pin" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••">
+      </label>` : ''}
+      <button class="grande" id="btn">Registrar mi entrada</button>`;
+  }
+  $('btn').onclick = registrar;
+}
+
+function ubicacion() {
+  if (!punto.exigir_ubicacion) return Promise.resolve({});
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) return reject(new Error('Este teléfono no comparte ubicación'));
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      () => reject(new Error('Activa la ubicación y vuelve a intentar')),
+      { enableHighAccuracy: true, timeout: 12000, maximumAge: 30000 }
+    );
+  });
+}
+
+function sello(d) {
+  const tarde = d.estado === 'retardo';
+  $('estampa').className = 'estampa ' + (tarde ? 'tarde' : 'ok');
+  $('estampa').innerHTML = `
+    <div class="tipo">${d.repetido ? 'Ya estabas registrado' : tarde ? 'Entrada con retardo' : 'Entrada registrada'}</div>
+    <div class="quien">${d.docente}</div>
+    <div class="dato">${d.hora}</div>
+    <div class="nota">${d.repetido ? 'No hace falta volver a escanear' : tarde ? 'Se avisó a dirección' : 'Buen día'}</div>`;
+  $('capa').classList.add('visible');
+}
+
+async function registrar() {
+  if (ocupado) return;
+  const btn = $('btn');
+  const quien = $('quien'), pin = $('pin');
+
+  // Si el teléfono ya está vinculado, ya sabemos quién es: usamos ese id directo.
+  // Si no, tomamos el nombre que eligió de la lista.
+  const docenteId = punto.yo ? punto.yo.id : (quien ? quien.value : null);
+
+  if (!punto.yo && quien && !quien.value) return ($('mensaje').textContent = 'Selecciona tu nombre', quien.focus());
+  if (!punto.yo && pin && pin.value.length !== 4) return ($('mensaje').textContent = 'Escribe tu PIN de 4 dígitos', pin.focus());
+
+  ocupado = true;
+  btn.disabled = true;
+  $('mensaje').className = 'mensaje';
+  $('mensaje').textContent = punto.exigir_ubicacion ? 'Confirmando que estás en la escuela…' : 'Registrando…';
+
+  try {
+    const donde = await ubicacion();
+    const r = await fetch('/api/registro', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ c: codigo, docente_id: docenteId, pin: pin ? pin.value : null, ...donde }),
+    });
+    const d = await r.json();
+    if (!d.ok) {
+      $('mensaje').className = 'mensaje malo';
+      $('mensaje').textContent = d.motivo || 'No se pudo registrar';
+      if (pin) pin.value = '';
+      return;
+    }
+    $('mensaje').textContent = '';
+    sello(d);
+  } catch (e) {
+    $('mensaje').className = 'mensaje malo';
+    $('mensaje').textContent = e.message || 'Sin conexión. Revisa tu señal.';
+  } finally {
+    ocupado = false;
+    btn.disabled = false;
+  }
+}
+
+(async () => {
+  try {
+    const r = await fetch('/api/punto?c=' + encodeURIComponent(codigo));
+    punto = await r.json();
+    if (!punto.ok) {
+      $('zona').innerHTML = `<p class="mensaje malo">${punto.motivo}. Pide a dirección el cartel actualizado.</p>`;
+      return;
+    }
+    $('escuela').textContent = punto.escuela;
+    pintar();
+  } catch {
+    $('zona').innerHTML = '<p class="mensaje malo">No se pudo conectar con el servidor de la escuela.</p>';
+  }
+})();
+</script>
+</body>
+</html>

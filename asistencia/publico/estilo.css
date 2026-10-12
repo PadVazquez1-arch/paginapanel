@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --tinta: #14243f;
+  --tinta-suave: #3d4d68;
+  --papel: #eae6d9;
+  --papel-claro: #f4f1e7;
+  --raya: #c9c0a8;
+  --sello: #b3261e;
+  --verde: #2e6f4e;
+  --ambar: #b87610;
+  --display: 'Archivo', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--display);
+  color: var(--tinta);
+  background: var(--papel);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Papel rayado: la retícula del libro de registro */
+.hoja {
+  background-color: var(--papel-claro);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 43px, var(--raya) 43px 44px);
+}
+
+h1, h2, .rotulo {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+h1 { font-size: 1.35rem; }
+h2 { font-size: .95rem; letter-spacing: .14em; color: var(--tinta-suave); }
+
+.rotulo {
+  font-size: .68rem;
+  letter-spacing: .18em;
+  color: var(--tinta-suave);
+}
+
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* --- Encabezado --- */
+.encabezado {
+  background: var(--tinta);
+  color: var(--papel-claro);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 4px solid var(--sello);
+}
+.encabezado h1 { font-size: 1rem; letter-spacing: .1em; }
+.encabezado .rotulo { color: #9fb0cc; }
+.encabezado .crece { flex: 1; }
+
+/* --- Botones --- */
+button, .boton {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .04em;
+  padding: 11px 18px;
+  border: 1.5px solid var(--tinta);
+  border-radius: 2px;
+  background: var(--tinta);
+  color: var(--papel-claro);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .08s ease, background .15s ease;
+}
+button:active, .boton:active { transform: translateY(1px); }
+.boton-claro { background: transparent; color: var(--tinta); }
+.boton-claro:hover { background: rgba(20,36,63,.07); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--ambar); outline-offset: 2px;
+}
+
+input, select {
+  font-family: var(--mono);
+  font-size: .9rem;
+  padding: 10px 12px;
+  border: 1.5px solid var(--raya);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--tinta);
+  width: 100%;
+}
+label { display: block; margin-bottom: 14px; }
+label .rotulo { display: block; margin-bottom: 5px; }
+
+/* --- Estados como sellos --- */
+.sello {
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.sello-puntual { color: var(--verde); }
+.sello-retardo { color: var(--ambar); }
+.sello-falta   { color: var(--sello); }
+.sello-neutro  { color: var(--tinta-suave); border-style: dashed; }
+
+/* --- Contenedores --- */
+.contenido { max-width: 880px; margin: 0 auto; padding: 20px 16px 60px; }
+.tarjeta {
+  background: #fff;
+  border: 1.5px solid var(--raya);
+  border-radius: 3px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+/* --- Filas de la hoja de registro --- */
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--raya);
+}
+.fila .nombre { font-weight: 600; font-size: .95rem; line-height: 1.25; }
+.fila .materia { font-size: .75rem; color: var(--tinta-suave); }
+.fila .horas { margin-left: auto; text-align: right; font-family: var(--mono); font-size: .85rem; }
+.fila .horas small { display: block; font-size: .62rem; letter-spacing: .1em; color: var(--tinta-suave); text-transform: uppercase; }
+
+.pestanas { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.pestanas button { background: transparent; color: var(--tinta-suave); border-color: var(--raya); }
+.pestanas button[aria-selected="true"] { background: var(--tinta); color: var(--papel-claro); border-color: var(--tinta); }
+
+.aviso { font-size: .8rem; color: var(--tinta-suave); line-height: 1.5; }
+.error { color: var(--sello); font-size: .85rem; }
+
+@media (max-width: 520px) {
+  .fila { flex-wrap: wrap; }
+  .fila .horas { margin-left: 0; text-align: left; }
+}

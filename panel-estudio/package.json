@@ -1,0 +1,22 @@
+{
+  "name": "panel-estudio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n web,api -c yellow,green \"vite\" \"node server.mjs\"",
+    "build": "vite build",
+    "servidor": "node server.mjs",
+    "inicio": "vite build && node server.mjs"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.0.1",
+    "vite": "^5.4.8"
+  }
+}

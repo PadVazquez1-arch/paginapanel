@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartel del punto de registro</title>
+<link rel="stylesheet" href="/estilo.css">
+<style>
+  .cartel {
+    background: #fff; border: 3px solid var(--tinta); max-width: 640px; margin: 0 auto;
+    display: flex; flex-direction: column; min-height: 900px;
+  }
+  .cartel header { background: var(--tinta); color: var(--papel-claro); padding: 26px 30px; border-bottom: 6px solid var(--sello); }
+  .cartel header .escuela { font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: #9fb0cc; }
+  .cartel header h1 { font-size: 2.1rem; margin-top: 8px; line-height: 1; }
+  .centro { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 34px 30px; }
+  .centro img { width: 100%; max-width: 380px; }
+  .liga { font-family: var(--mono); font-size: .68rem; color: var(--tinta-suave); margin-top: 14px; word-break: break-all; text-align: center; }
+  .pasos { border-top: 2px solid var(--tinta); padding: 24px 30px 30px; }
+  .paso { display: flex; gap: 14px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--raya); }
+  .paso:last-child { border-bottom: 0; }
+  .paso b { font-family: var(--mono); font-size: 1.4rem; color: var(--sello); line-height: 1; }
+  .paso span { font-size: 1rem; line-height: 1.35; }
+  .horario { text-align: center; font-family: var(--mono); font-weight: 600; padding: 14px; background: var(--papel); font-size: 1rem; }
+  @media print {
+    .noimprimir { display: none; }
+    body { background: #fff; }
+    .contenido { padding: 0; max-width: none; }
+    .cartel { border: 0; min-height: 96vh; }
+  }
+</style>
+</head>
+<body>
+  <header class="encabezado noimprimir">
+    <div class="crece"><h1>Cartel del punto de registro</h1><span class="rotulo">Imprime en tamaño carta y pégalo en la entrada</span></div>
+    <button onclick="print()">Imprimir</button>
+  </header>
+
+  <main class="contenido">
+    <p class="aviso noimprimir">Plastifícalo o métele mica: va a estar en la pared todos los días. Si alguna vez se filtra
+      el código, en Ajustes puedes renovarlo y este cartel deja de servir al momento.</p>
+
+    <section class="cartel">
+      <header>
+        <div class="escuela" id="escuela">—</div>
+        <h1>Registro de asistencia</h1>
+      </header>
+
+      <div class="centro">
+        <img src="/api/qr-punto.png" alt="Código QR del punto de registro">
+        <div class="liga" id="liga"></div>
+      </div>
+
+      <div class="horario" id="horario"></div>
+
+      <div class="pasos">
+        <div class="paso"><b>1</b><span>Abre la cámara de tu celular y apúntala al código.</span></div>
+        <div class="paso"><b>2</b><span>Selecciona tu nombre y escribe tu PIN de 4 dígitos.</span></div>
+        <div class="paso"><b>3</b><span>Toca <b style="font-family:var(--display);color:var(--tinta);font-size:1rem">Registrar mi entrada</b> y espera el sello en pantalla.</span></div>
+        <div class="paso"><b>4</b><span>La próxima vez tu teléfono ya te reconoce: es un solo toque.</span></div>
+      </div>
+    </section>
+  </main>
+
+<script>
+(async () => {
+  const d = await (await fetch('/api/hoy')).json();
+  const l = await (await fetch('/api/liga-punto')).json();
+  document.getElementById('escuela').textContent = d.config.escuela;
+  document.getElementById('liga').textContent = l.liga;
+  document.getElementById('horario').textContent =
+    `Entrada ${d.config.hora_entrada} · tolerancia ${d.config.tolerancia_min} minutos`;
+})();
+</script>
+</body>
+</html>
